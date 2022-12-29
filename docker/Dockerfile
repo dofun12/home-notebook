@@ -17,11 +17,17 @@ RUN npm run build.prod
 
 
 FROM nginx as nginx
+
 RUN mkdir -p /html
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
+# COPY nginx/nginx.conf /etc/nginx/nginx.conf
 USER root
 
 RUN chmod -R 777 /html
 RUN chown -R www-data:www-data /html
 COPY --from=node /nodedir/gui /html/gui
 
+COPY nginx/nginx-conf.template /etc/nginx/conf.d/default.conf.template
+COPY nginx/docker-entrypoint.sh /
+RUN cat /etc/nginx/conf.d/default.conf
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
