@@ -30,6 +30,7 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
 USER root
 RUN chmod -R 777 /html
+RUN chmod -R 777 /docker-entrypoint.sh
 RUN chmod -R 777 /etc/nginx/conf.d/default.conf
 RUN chown -R www-data:www-data /html
 
