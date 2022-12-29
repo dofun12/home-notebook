@@ -6,7 +6,7 @@ import {TarefasComponent} from "./components/tarefas/tarefas.component";
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'tarefas', component: TarefasComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'}
+  {path: '', redirectTo: '/tarefas', pathMatch: 'full'}
 ];
 
 @NgModule({
