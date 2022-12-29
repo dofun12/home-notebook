@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {TarefaDto} from "../dto/tarefaDto";
-import {environment} from "../../environment";
+import {environment} from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
