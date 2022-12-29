@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">Hi there!</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="name" [(ngModel)]="tarefa.name" class="form-control" id="exampleFormControlInput1" placeholder="Minha Tarefa">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Detalhes</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="tarefa.description" rows="3"></textarea>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <button type="button" class="btn btn-success" (click)="save()">Save</button>
+</div>
