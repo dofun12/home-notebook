@@ -9,13 +9,17 @@ import { TarefasComponent } from './components/tarefas/tarefas.component';
 import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TarefaModalComponent } from './modal/tarefa-modal/tarefa-modal.component';
+import { CreateNoteComponent } from './components/create-note/create-note.component';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TarefasComponent,
-    TarefaModalComponent
+    TarefaModalComponent,
+    CreateNoteComponent,
+    EditNoteComponent
   ],
   imports: [
     HttpClientModule,

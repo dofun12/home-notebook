@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Note Name</label>
+    <input type="name" [(ngModel)]="note.name" class="form-control" id="exampleFormControlInput1"
+           placeholder="Note name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Note type</label>
+    <select [(ngModel)]="note.type" class="form-control" id="exampleFormControlTextarea1">
+      <option *ngFor="let type of types" [textContent]="type"></option>
+    </select>
+  </div>
+  <div (click)="generateNewNote()" class="btn btn-light">Generate Note</div>
+  <div (click)="createNewNote()" class="btn btn-light">Save</div>
+</div>
