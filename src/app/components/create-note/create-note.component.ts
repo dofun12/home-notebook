@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NoteService} from "../../services/note.service";
 import {NoteDto} from "../../dto/note-dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-note',
@@ -8,7 +9,7 @@ import {NoteDto} from "../../dto/note-dto";
   styleUrls: ['./create-note.component.scss']
 })
 export class CreateNoteComponent {
-  constructor(private noteService: NoteService) {}
+  constructor(private noteService: NoteService, private router: Router) {}
   note = new NoteDto();
 
   types =  ['simple', 'multi']
@@ -18,7 +19,7 @@ export class CreateNoteComponent {
   }
 
   generateNewNote(){
-    const letters = 'Q W E R T Y U I O P A S D F G H J K L Z X C V B N M 0 1 2 3 4 5 6 7 8 9 @ #'
+    const letters = 'Q W E R T Y U I O P A S D F G H J K L Z X C V B N M 0 1 2 3 4 5 6 7 8 9'
     const arrayletters = letters.split(' ');
     let text = '';
     for(let i=0;i<6;i++){
@@ -34,6 +35,7 @@ export class CreateNoteComponent {
   createNewNote(){
     this.noteService.addNote(this.note).subscribe(response => {
       console.log('Saved', response);
+      this.router.navigate(['note/edit/', this.note.name])
     });
   }
 

@@ -1,1 +1,18 @@
-<p>edit-note works!</p>
+<div class="container-fluid">
+  <div *ngFor="let paper of note.papers" class="mb-3">
+    <label [for]="paper.id" class="form-label">Paper Content</label>
+    <div *ngIf="paper.elementType === 'short-text'">
+      <input type="name" [(ngModel)]="paper.content" class="form-control" [id]="paper.id"
+             placeholder="Note content">
+    </div>
+    <div *ngIf="paper.elementType === 'textarea'">
+      <textarea type="name" [(ngModel)]="paper.content" class="form-control" [id]="paper.id" rows="10" cols="2"></textarea>
+    </div>
+
+    <label [for]="paper.id+'-select'" class="form-label">Options</label>
+    <select [(ngModel)]="paper.elementType" [id]="paper.id+'-select'" class="form-control">
+      <option *ngFor="let type of elementTypes" [textContent]="type"></option>
+    </select>
+  </div>
+</div>
+<div class="btn btn-light" (click)="addPaper()">Add Paper</div>
