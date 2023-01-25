@@ -8,9 +8,8 @@
   </div>
   <div class="row">
     <div class="col-12 mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Note Name</label>
-      <input type="name" [(ngModel)]="note.name" class="form-control" id="exampleFormControlInput1"
-             placeholder="Note name">
+      <label  class="form-label">Note Name</label>
+      <div  [textContent]="note.name" class="form-control"></div>
     </div>
     <div class="col-12 mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Note type</label>

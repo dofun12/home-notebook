@@ -9,7 +9,7 @@
 <div class="container-fluid">
   <div class="row">
     <div *ngFor="let paper of note.papers" class="col-12 paper">
-      <div class="col-12">
+      <div class="col-12 mt-3">
         <div *ngIf="paper.elementType === 'short-text'">
           <p [textContent]="paper.content"></p>
         </div>

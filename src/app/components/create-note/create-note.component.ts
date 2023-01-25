@@ -9,7 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./create-note.component.scss']
 })
 export class CreateNoteComponent {
-  constructor(private noteService: NoteService, private router: Router) {}
+  constructor(private noteService: NoteService, private router: Router) {
+    this.generateNewNote();
+  }
   note = new NoteDto();
   name = ''
   types =  ['simple', 'multi']
@@ -40,6 +42,7 @@ export class CreateNoteComponent {
   }
 
   goToNote(){
+    this.name = this.name.toUpperCase();
     this.noteService.getNotesByName(this.name).subscribe( response=> {
       if(!response.success){
         return;
