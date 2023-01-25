@@ -1,8 +1,9 @@
 <nav class="navbar bg-light">
-  <div class="container">
+  <div class="container-fluid">
     <span class="navbar-brand mb-0 h1" [textContent]="note.name"></span>
     <div class="d-flex">
-      <div class="btn btn-light" routerLink="/note/new">Voltar</div>
+      <div class="btn btn-success" [routerLink]="'/note/edit/'+note.name">Editar</div>
+      <div class="btn btn-outline-dark" routerLink="/note/new">Voltar</div>
     </div>
   </div>
 </nav>
@@ -14,7 +15,7 @@
           <p [textContent]="paper.content"></p>
         </div>
         <div *ngIf="paper.elementType === 'textarea'">
-          <p [textContent]="paper.content"></p>
+          <pre [textContent]="paper.content"></pre>
         </div>
 
         <div *ngIf="paper.elementType === 'html'">
