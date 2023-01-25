@@ -1,0 +1,44 @@
+<nav class="navbar bg-light">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1" [textContent]="note.name"></span>
+    <div class="d-flex">
+      <div class="btn btn-light" routerLink="/note/new">Voltar</div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let paper of note.papers" class="col-12 paper">
+      <div class="col-12">
+        <div *ngIf="paper.elementType === 'short-text'">
+          <p [textContent]="paper.content"></p>
+        </div>
+        <div *ngIf="paper.elementType === 'textarea'">
+          <p [textContent]="paper.content"></p>
+        </div>
+
+        <div *ngIf="paper.elementType === 'html'">
+          <div [innerHTML]="paper.content"></div>
+        </div>
+
+        <div *ngIf="paper.elementType === 'image-url'">
+          <img [src]="paper.content" width="100%">
+        </div>
+
+        <div *ngIf="paper.elementType === 'big-title'">
+          <h1 [textContent]="paper.content"></h1>
+        </div>
+
+        <div *ngIf="paper.elementType === 'title'">
+          <h2 [textContent]="paper.content"></h2>
+        </div>
+
+        <div *ngIf="paper.elementType === 'small-title'">
+          <h3 [textContent]="paper.content"></h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

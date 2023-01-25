@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class CreateNoteComponent {
   constructor(private noteService: NoteService, private router: Router) {}
   note = new NoteDto();
-
+  name = ''
   types =  ['simple', 'multi']
 
   private getRandomInt(max: number) {
@@ -37,6 +37,15 @@ export class CreateNoteComponent {
       console.log('Saved', response);
       this.router.navigate(['note/edit/', this.note.name])
     });
+  }
+
+  goToNote(){
+    this.noteService.getNotesByName(this.name).subscribe( response=> {
+      if(!response.success){
+        return;
+      }
+      this.router.navigate(['note/view/', response.data.name])
+    })
   }
 
 }

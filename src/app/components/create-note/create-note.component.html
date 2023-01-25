@@ -1,15 +1,26 @@
 <div class="container-fluid">
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Note Name</label>
-    <input type="name" [(ngModel)]="note.name" class="form-control" id="exampleFormControlInput1"
-           placeholder="Note name">
+  <div class="row mb-4">
+    <div class="col-12"><h1>Go to Note</h1></div>
+    <div class="col-10">
+      <input style="padding: 15px; width: 100%; height: 50px; border-radius: 10px;font-size: larger; text-transform: uppercase;" [(ngModel)]="name">
+    </div>
+    <div class="col-2"><div class="btn btn-lg btn-light" (click)="goToNote()">Go!</div></div>
   </div>
-  <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Note type</label>
-    <select [(ngModel)]="note.type" class="form-control" id="exampleFormControlTextarea1">
-      <option *ngFor="let type of types" [textContent]="type"></option>
-    </select>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Note Name</label>
+      <input type="name" [(ngModel)]="note.name" class="form-control" id="exampleFormControlInput1"
+             placeholder="Note name">
+    </div>
+    <div class="col-12 mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Note type</label>
+      <select [(ngModel)]="note.type" class="form-control" id="exampleFormControlTextarea1">
+        <option *ngFor="let type of types" [textContent]="type"></option>
+      </select>
+    </div>
+    <div (click)="generateNewNote()" class="btn btn-light">Generate Note</div>
+    <div (click)="createNewNote()" class="btn btn-light">Save</div>
   </div>
-  <div (click)="generateNewNote()" class="btn btn-light">Generate Note</div>
-  <div (click)="createNewNote()" class="btn btn-light">Save</div>
+
+
 </div>

@@ -1,18 +1,44 @@
-<div class="container-fluid">
-  <div *ngFor="let paper of note.papers" class="mb-3">
-    <label [for]="paper.id" class="form-label">Paper Content</label>
-    <div *ngIf="paper.elementType === 'short-text'">
-      <input type="name" [(ngModel)]="paper.content" class="form-control" [id]="paper.id"
-             placeholder="Note content">
+<nav class="navbar bg-light">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1" [textContent]="note.name"></span>
+    <div class="d-flex">
+      <div class="btn btn-light" (click)="save()">Salvar</div>
     </div>
-    <div *ngIf="paper.elementType === 'textarea'">
-      <textarea type="name" [(ngModel)]="paper.content" class="form-control" [id]="paper.id" rows="10" cols="2"></textarea>
-    </div>
-
-    <label [for]="paper.id+'-select'" class="form-label">Options</label>
-    <select [(ngModel)]="paper.elementType" [id]="paper.id+'-select'" class="form-control">
-      <option *ngFor="let type of elementTypes" [textContent]="type"></option>
-    </select>
   </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let paper of note.papers;let odd = odd" class="col-12 mb-3 paper" [ngClass]="{'odd': odd}">
+      <div class="col-12">
+        <div class="text-end">
+          <button type="button" class="btn btn-secondary" (click)="removePaper(paper)">Remove</button>
+        </div>
+      </div>
+      <div class="col-12">
+        <label [for]="paper.id+'-select'" class="form-label">Options</label>
+        <select [(ngModel)]="paper.elementType" [id]="paper.id+'-select'" class="form-control">
+          <option *ngFor="let type of elementTypes" [textContent]="type"></option>
+        </select>
+
+
+        <label [for]="paper.id" class="form-label">Paper Content</label>
+        <div *ngIf="isOnGroup(paper.elementType, ['image-url','short-text','short-text', 'big-title', 'title', 'small-title'])">
+          <input type="name" [(ngModel)]="paper.content" class="form-control" [id]="paper.id"
+                 placeholder="Content">
+        </div>
+        <div *ngIf="paper.elementType === 'textarea'">
+          <textarea type="name" [(ngModel)]="paper.content" class="form-control" [id]="paper.id" rows="10" cols="2"></textarea>
+        </div>
+
+        <div *ngIf="paper.elementType === 'html'">
+          <textarea type="name" [(ngModel)]="paper.content" class="form-control" [id]="paper.id" rows="10" cols="2"></textarea>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
 </div>
 <div class="btn btn-light" (click)="addPaper()">Add Paper</div>

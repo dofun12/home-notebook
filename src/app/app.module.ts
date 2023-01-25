@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TarefaModalComponent } from './modal/tarefa-modal/tarefa-modal.component';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
 import { EditNoteComponent } from './components/edit-note/edit-note.component';
+import { ViewNoteComponent } from './components/view-note/view-note.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EditNoteComponent } from './components/edit-note/edit-note.component';
     TarefasComponent,
     TarefaModalComponent,
     CreateNoteComponent,
-    EditNoteComponent
+    EditNoteComponent,
+    ViewNoteComponent
   ],
   imports: [
     HttpClientModule,
